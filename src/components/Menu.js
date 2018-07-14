@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //Set the api endpoint
-const apiRoot = process.env.API_ROOT || "http://localhost:4000";
+const apiRoot = "https://list-quiz-api.herokuapp.com";
 
 class Menu extends Component {
   constructor(props){

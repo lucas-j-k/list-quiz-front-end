@@ -16,7 +16,7 @@ import ErrorScreen from './components/ErrorScreen';
 import dummyData from './dummydata';
 
 //Set the api endpoint
-const apiRoot = process.env.API_ROOT || "http://localhost:4000";
+const apiRoot = "https://list-quiz-api.herokuapp.com";
 
 
 class App extends Component {
