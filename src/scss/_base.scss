@@ -1,0 +1,270 @@
+//Base styles - mobile first
+
+
+* {
+  box-sizing: border-box;
+  font-family: $font;
+  color: $black;
+}
+
+body {
+  width:100%;
+  height:100vh;
+}
+
+.btn {
+  padding: em(10);
+  background-color: $white;
+  @include standard-border;
+  @include box-shadow;
+  border-radius: em(10);
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+.control-bar {
+  background-color: $black;
+  width:100%;
+  color: $grey-40;
+  padding: em(5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: em(40);
+  &__current {
+    color: inherit;
+  }
+  &__title {
+    color: inherit;
+  }
+}
+
+.prompt {
+  width:90%;
+  @include center-margin;
+  text-align: center;
+  &__current-guess {
+    @include standard-border;
+    padding: em(10);
+    font-size: em(24);
+    letter-spacing: em(3);
+  }
+}
+
+
+.keyboard {
+  width:100%;
+  @include center-margin;
+  margin-top: em(20);
+  padding: em(10);
+  margin-bottom: em(20);
+  &__row {
+    display: flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+  }
+  &__letter {
+    padding: em(5);
+    background-color: $grey-20;
+    display:inline-block;
+    @include standard-border;
+    @include box-shadow;
+    margin: em(4);
+    cursor: pointer;
+  }
+}
+
+.results-panel {
+  width: 90%;
+  @include center-margin;
+  @include standard-border;
+  margin-bottom: em(25);
+  &__heading {
+    background-color: $black;
+    color: $grey-40;
+    width:100%;
+    padding: em(5);
+    margin: 0;
+    text-align: center;
+  }
+  &__list {
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+  }
+  &__item {
+    &--correct, &--incorrect {
+      display: inline-flex;
+      color: $white;
+      padding: em(10);
+      justify-content: space-between;
+      align-items: center;
+      font-size: em(18);
+      margin:em(5);
+      border-radius: em(5);
+      @include box-shadow;
+    }
+    &--correct {
+      background-color: $correct;
+    }
+    &--incorrect {
+      background-color: $incorrect;
+    }
+  }
+  &__text {
+    color: inherit;
+  }
+}
+
+.strikes-bar {
+  font-size: em(18);
+  width: 90%;
+  display: flex;
+  margin: em(10) auto;
+  padding: em(5);
+  text-align: center;
+  background-color: $black;
+  color: $grey-40;
+  &__heading {
+    color: inherit;
+    width: 50%;
+  }
+  &__strikes-wrapper {
+    width:50%;
+    text-align: center;
+  }
+  &__strike {
+    margin: 0 em(5);
+    i {
+      color: $grey-40;
+    }
+  }
+}
+
+
+.menu {
+  &--show {
+    display:block;
+  }
+  &--hide {
+    display:none;
+  }
+  &--show, &--hide {
+    position: absolute;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $white;
+  }
+  &__header {
+    background-color: $black;
+    color: $grey-40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: em(5);
+  }
+  &__title, &__current {
+    color: inherit;
+  }
+  &__intro {
+    width: 50%;
+    margin: em(10) auto;
+    text-align: center;
+  }
+  &__form {
+    width: 95%;
+    @include center-margin;
+    margin-top: em(25);
+  }
+  &__label {
+    display: block;
+    text-align: center;
+    margin: em(40) auto;
+  }
+  &__dropdown {
+    width:90%;
+    padding:em(3);
+    font-size: em(18);
+    margin-top: em(5);
+    option {
+    }
+  }
+  &__submit {
+    margin: em(20) auto;
+    display: block;
+  }
+}
+
+.error {
+  &--show, &--hide {
+    position: absolute;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $white;
+  }
+  &--show {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index:500;
+  }
+  &--hide {
+    display:none;
+  }
+  &__msg {
+    text-align: center;
+    width:60%;
+  }
+  &__reload {
+    text-decoration: none;
+    width:auto;
+  }
+}
+
+@include portrait-tablet {
+
+  body {
+    background-color: $grey-20;
+  }
+  .container {
+    width: 70%;
+    background-color: $white;
+    padding-bottom: em(20);
+    @include box-shadow;
+    margin-top: em(20);
+  }
+
+  .keyboard {
+    &__letter {
+      padding: em(10);
+      margin: em(5);
+    }
+  }
+}
+
+@include desktop {
+  .container {
+    width: 50%;
+  }
+}
+
+@include wide-desktop {
+
+}

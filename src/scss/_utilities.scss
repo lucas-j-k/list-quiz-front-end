@@ -1,0 +1,38 @@
+//Utility classes, sass functions, mixins etc..
+
+
+//Mixin to include box box-shadow
+@mixin box-shadow {
+  -webkit-box-shadow: -5px 5px 5px -1px rgba(22,22,22,0.5);
+  -moz-box-shadow: -5px 5px 5px -1px rgba(22,22,22,0.5);
+  box-shadow: -5px 5px 5px -1px rgba(22,22,22,0.5);
+}
+
+
+@mixin standard-border {
+  border:2px solid $black;
+}
+
+@mixin center-margin {
+  margin: 0 auto;
+}
+
+
+//Take pixel values and convert to em. Default is the browser context value defined in variables file.
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+//Media Query Mixins:
+@mixin portrait-tablet {
+  @media (min-width: 728px) { @content; }
+}
+@mixin landscape-tablet {
+  @media (min-width: 900px) { @content; }
+}
+@mixin desktop {
+  @media (min-width: 1024px) { @content; }
+}
+@mixin wide-desktop {
+  @media (min-width: 1800px) { @content; }
+}

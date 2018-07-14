@@ -1,0 +1,43 @@
+//Site wide style variables
+
+
+$black: #161616;
+$white: #ffffff;
+
+$correct: #678654;
+$incorrect: #904229;
+// $primary-10: mix(white, $primary, 80%);
+// $primary-20: mix(white, $primary, 60%);
+// $primary-30: mix(white, $primary, 40%);
+// $primary-40: mix(white, $primary, 20%);
+// $primary-50: $primary;
+// $primary-60: mix(black, $primary, 20%);
+// $primary-70: mix(black, $primary, 40%);
+// $primary-80: mix(black, $primary, 60%);
+// $primary-90: mix(black, $primary, 80%);
+//
+// $secondary-10: mix(white, $secondary, 80%);
+// $secondary-20: mix(white, $secondary, 60%);
+// $secondary-30: mix(white, $secondary, 40%);
+// $secondary-40: mix(white, $secondary, 20%);
+// $secondary-50: $secondary;
+// $secondary-60: mix(black, $secondary, 20%);
+// $secondary-70: mix(black, $secondary, 40%);
+// $secondary-80: mix(black, $secondary, 60%);
+// $secondary-90: mix(black, $secondary, 80%);
+//
+// $correct: #27771d;
+// $incorrect: #8c2111;
+
+
+//Range of grays:
+$grey-20: lighten($black, 80%);
+$grey-40: lighten($black, 60%);
+$grey-60: lighten($black, 40%);
+$grey-80: lighten($black, 20%);
+
+//Default font size for the em function:
+$browser-context: 16;
+
+//Typography:
+$font: 'Share Tech Mono', monospace;
