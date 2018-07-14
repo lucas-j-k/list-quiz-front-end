@@ -42,6 +42,16 @@ class App extends Component {
         current:3,
         max:4
       },
+      variations:[
+        {
+          'name':'Remove Consonants',
+          'value':'2'
+        },
+        {
+          'name':'Remove Vowels',
+          'value':'3'
+        }
+      ],
       apiError:{
         showScreen:false,
         code: ""
@@ -190,6 +200,7 @@ class App extends Component {
           running={this.state.running}
           title={this.state.title}
           currentListName={this.state.currentListName}
+          variations={this.state.variations}
         />
         <ControlBar title={this.state.title} toggleMenu={this.toggleMenu} currentListName={this.state.currentListName} />
         <Prompt currentGuess={this.state.currentGuess} />

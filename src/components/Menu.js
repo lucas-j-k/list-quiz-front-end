@@ -7,7 +7,7 @@ class Menu extends Component {
   constructor(props){
     super(props)
     this.state={
-      variantValue: "1",
+      variantValue: "3",
       listValue: "1",
     }
     this.handleVariantValueChange = this.handleVariantValueChange.bind(this);
@@ -36,6 +36,9 @@ class Menu extends Component {
   render() {
     let listOptions = this.props.masterLists.map((list)=>{
       return <option value={list.id}>{list.name}</option>
+    })
+    let variationsMarkup = this.props.variations.map((variation)=>{
+      return <option value={variation.value}>{variation.name}</option>
     })
     let menuDisplayClass = this.props.showMenu ? "menu--show" : "menu--hide";
     let introContent = this.props.running ?
@@ -66,9 +69,7 @@ class Menu extends Component {
           <label className="menu__label">
             <p className="menu__label-tag">Choose a Question Format:</p>
               <select className="menu__dropdown" value={this.state.variantValue} onChange={this.handleVariantValueChange}>
-                <option value="1">Alternate Letters</option>
-                <option value="2">Remove Consonants</option>
-                <option value="3">Remove Vowels</option>
+                {variationsMarkup}
               </select>
           </label>
           <input className="menu__submit btn" type="submit" value="Launch" />
