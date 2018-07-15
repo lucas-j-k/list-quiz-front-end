@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-//Set the api endpoint
-const apiRoot = "https://list-quiz-api.herokuapp.com";
 
 class Menu extends Component {
   constructor(props){
     super(props)
     this.state={
-      variantValue: "3",
+      variantValue: "1",
       listValue: "1",
     }
     this.handleVariantValueChange = this.handleVariantValueChange.bind(this);
@@ -29,8 +27,8 @@ class Menu extends Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    let listEndpoint = `${apiRoot}/api/list/${this.state.listValue}`;
-    let entriesEndpoint = `${apiRoot}/api/list/${this.state.listValue}/entries?mutation=${this.state.variantValue}`
+    let listEndpoint = `${this.props.apiRoot}/api/list/${this.state.listValue}`;
+    let entriesEndpoint = `${this.props.apiRoot}/api/list/${this.state.listValue}/entries?transformation=${this.state.variantValue}`
     this.props.fetchList(listEndpoint, entriesEndpoint);
   }
   render() {

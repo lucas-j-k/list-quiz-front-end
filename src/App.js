@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 //Import components
 import Keyboard from './components/Keyboard';
 import Prompt from './components/Prompt';
@@ -15,9 +16,10 @@ import ErrorScreen from './components/ErrorScreen';
 //import dummy data for dev testing:
 import dummyData from './dummydata';
 
-//Set the api endpoint
-const apiRoot = "https://list-quiz-api.herokuapp.com";
+//This config file is only present on localhost, to change the api root url.
+import config from './config.js';
 
+const API_ROOT = process.env.REACT_APP_API_ROOT || "https://list-quiz-api.herokuapp.com";
 
 class App extends Component {
   constructor(props){
@@ -28,6 +30,7 @@ class App extends Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = {
       title: "List Quiz",
+      apiRoot: API_ROOT,
       currentList: [],
       masterLists: [],
       currentListName: "",
@@ -43,6 +46,10 @@ class App extends Component {
         max:4
       },
       variations:[
+        {
+          'name':'Remove Middle Letters',
+          'value':'1'
+        },
         {
           'name':'Remove Consonants',
           'value':'2'
@@ -64,7 +71,7 @@ class App extends Component {
     }
   }
   componentDidMount() {
-      let endpoint = apiRoot + "/api/list";
+      let endpoint = this.state.apiRoot + "/api/list";
       fetch(endpoint)
       .then((response)=>{
         return response.json();
@@ -163,7 +170,7 @@ class App extends Component {
       if(updatedGuess.toLowerCase() === this.state.activeItem.originalText.toLowerCase() || errors.current <= 0){
         newIndex += 1;
         let wasAnswerCorrect = updatedGuess.toLowerCase() === this.state.activeItem.originalText.toLowerCase();
-        currentResults.push({
+        currentResults.unshift({
           text: this.state.activeItem.originalText,
           wasCorrect: wasAnswerCorrect
         });
@@ -193,6 +200,7 @@ class App extends Component {
       <div className="container">
         <ErrorScreen apiError={this.state.apiError} />
         <Menu
+          apiRoot={this.state.apiRoot}
           fetchList={this.fetchList}
           showMenu={this.state.showMenu}
           masterLists={this.state.masterLists}
