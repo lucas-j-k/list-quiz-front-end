@@ -16,8 +16,6 @@ import ErrorScreen from './components/ErrorScreen';
 //import dummy data for dev testing:
 import dummyData from './dummydata';
 
-//This config file is only present on localhost, to change the api root url.
-import config from './config.js';
 
 const API_ROOT = process.env.REACT_APP_API_ROOT || "https://list-quiz-api.herokuapp.com";
 
